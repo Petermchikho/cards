@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>agrera livesctock selection</title>
+    <link rel="shortcut icon" href="../../assets/img/logo/favicon.ico">
+    <link rel="icon" sizes="16x16 32x32 64x64" href="../../assets/img/logo/favicon.ico">
+    <link rel="icon" type="image/png" sizes="196x196" href="../../assets/img/logo/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="160x160" href="../../assets/img/logo/favicon-160.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../../assets/img/logo/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="../../assets/img/logo/favicon-64.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/logo/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/logo/favicon-16.png">
+    <link rel="apple-touch-icon" href="../../assets/img/logo/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../assets/img/logo/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../assets/img/logo/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../../assets/img/logo/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../../assets/img/logo/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../../assets/img/logo/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/logo/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../../assets/img/logo/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/logo/favicon-180.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="../../assets/img/logo/favicon-144.png">
+    <meta name="msapplication-config" content="../../assets/img/logo/browserconfig.xml">
+  
+    <!-------------------Vendor CSS Files----------->
+    <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <!------------------ Own style files------------>
+    <link rel="stylesheet" href="../../assets/css/Cards.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-------------header section--------------->
+  <header id="header" class="header-general">
+    <div class="logo">
+      <a href="{% url 'homepage' %}">
+       <!-- <img src="{% static "assets/img/logo/agrera1.png" %}" alt="">-->
+        <img src= "../../assets/img/agrera1.png" alt="">
+        <h4>agrera</h4>
+      </a>
+      
+    </div>
+    <div class="nav-container" id="nav-container">
+      
+      <nav class="navigation-general" id="navigation-general">
+        <ul>
+          <li class="main-link active">
+            <a href="{% url 'homepage' %}"   class="nav-link-main active">Home</a>
+          </li>
+          
+          <li class="main-link dropdown" id="dropdown"><a href="#" class="nav-link-main"><span>Feed formulation</span> <i class="bi bi-chevron-down"></i></a>
+            <ul id="DropDown" class="dropDown-inner">
+              <li><a href="{% url 'feed_formulation' %}" class="nav-link-main">Pig Feed</a></li>
+              <li><a href="{% url 'feed_formulation' %}" class="nav-link-main">Chicken Feed</a></li>
+              
+            </ul>
+          </li>
+          <li class="main-link">
+            
+          </li>
+          <li class="main-link "><a href="{% url 'marketplace_page' %}" class="nav-link-main">Marketplace</a></li>
+          <li class="main-link "></li>
+          <li class="main-link dropdown" id="dropdown">
+            <a href="#" class="nav-link-main">
+              <span>Drop Down</span> 
+              <i class="bi bi-chevron-down">
+
+              </i>
+            </a>
+            <ul id="DropDown" class="dropDown-inner">
+              <li><a href="#" class="nav-link-main">Drop Down 1</a></li>
+              <li><a href="#" class="nav-link-main">Drop Down 2</a></li>
+              <li><a href="{% url 'weather_home' %}" class="nav-link-main">Weather forecast</a></li>
+              <li><a href="{% url 'vacancy_page' %}" class="nav-link-main">Vacancies</a></li>
+            </ul>
+          </li>
+          <li class="main-link"><a href="{% url 'blogs_page' %}" class="nav-link-main">Blogs</a></li>
+          <li class="main-link"><a href="{% url 'mbeya_fertilizer' %}" class="nav-link-main">Mbeya Fertilizer</a></li>
+          
+        </ul>
+        <!--{% if not user.is_authenticated %}-->
+        <a href="{% url 'login_page' %}" class="login-signup" ><button >Login/Signup</button></a>
+        <!--{% endif %}-->
+      </nav>
+      <div class="close-harmburger">
+        <i class="bi bi-x-circle" id="close-nav"></i>
+      </div>
+      
+    </div>
+    <div class="container-dummy">
+      <!--add an if statement here
+      <a href="{% url 'profile_page' %}" class="profile-after-login" id="profile-after-login" >
+        {% if user.is_authenticated %}
+    
+            {% if user.profile_picture %}
+                <img src="{{ user.profile_picture.url }}" alt="Profile Picture">
+                <span class="counter-show"></span>
+            {% else %}
+                <img src="{% static 'profile_pics/no_profile.jpg' %}" alt="Default Profile Picture">
+                <span class="counter-show"></span>
+            {% endif %}
+        {% endif %}
+          
+          
+      </a>
+      -->
+      <div class="harmburger">
+        <i class="bi bi-list" id="harmburger"></i>
+      </div>
+   </div>
+  </header>
+  <!-- header ends here-->
+  <main>
+    <section class="cards section-padding">
+        <div class="heading ">
+            <h3>PRICING</h3>
+            <h4>Pricing</h4>
+        </div>
+        <div class="cards-container">
+            <div class="card">
+              <div class="card-intro">
+                <span class="card-intro-circle">
+                  <img src="../../assets/img/cards/icon1.png" alt="">
+                </span>
+
+              </div>
+              <div class="card-heading">
+                <h6>
+                  Free plan
+                </h6>
+
+              </div>
+              <div class="card-details">
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  Free articles
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  2 Free business records
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  Free articles
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  2 Free business records
+                </p>
+
+              </div>
+              <div class="card-price-select">
+                <h6>
+                  K0
+                </h6>
+                <p>
+                  per month
+                </p>
+                <div class="button-card">
+                  <button>
+                    SELECT
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="card">
+              <div class="card-intro">
+                <span class="card-intro-circle">
+                  <img src="../../assets/img/cards/icon2.png" alt="">
+                </span>
+
+              </div>
+              <div class="card-heading">
+                <h6>
+                  Standard plan
+                </h6>
+
+              </div>
+              <div class="card-details">
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  Free articles
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  2 Free business records
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  Free articles
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  2 Free business records
+                </p>
+
+              </div>
+              <div class="card-price-select">
+                <h6>
+                  K3,000
+                </h6>
+                <p>
+                  per month
+                </p>
+                <div class="button-card">
+                  <button>
+                    SELECT
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="card">
+              <div class="card-intro">
+                <span class="card-intro-circle">
+                  <img src="../../assets/img/cards/icon2.png" alt="">
+                </span>
+
+              </div>
+              <div class="card-heading">
+                <h6>
+                  Advanced plan
+                </h6>
+
+              </div>
+              <div class="card-details">
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  Free articles
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  2 Free business records
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  Free articles
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  2 Free business records
+                </p>
+
+              </div>
+              <div class="card-price-select">
+                <h6>
+                  K5,000
+                </h6>
+                <p>
+                  per month
+                </p>
+                <div class="button-card">
+                  <button>
+                    SELECT
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+            <div class="card">
+              <div class="card-intro">
+                <span class="card-intro-circle">
+                  <img src="../../assets/img/cards/icon3.png" alt="">
+                </span>
+
+              </div>
+              <div class="card-heading">
+                <h6>
+                  Super plan
+                </h6>
+
+              </div>
+              <div class="card-details">
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  Free articles
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  2 Free business records
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  Free articles
+                </p>
+                <p>
+                  <i class="bi bi-check-circle-fill">
+
+                  </i>
+                  2 Free business records
+                </p>
+
+              </div>
+              <div class="card-price-select">
+                <h6>
+                  K10,000
+                </h6>
+                <p>
+                  per month
+                </p>
+                <div class="button-card">
+                  <button>
+                    SELECT
+                  </button>
+                </div>
+
+              </div>
+
+            </div>
+        </div>
+
+    </section>
+    
+    
+     
+  </main>
+  <footer class="section-padding padding-bottom">
+    <div class="top">
+      <div class="left-container">
+        <div class="footer-heading-location">
+          <div class="heading">
+            <p class="bold larger">Contact Us</p>
+          </div>
+          <div class="list-items">
+            <p class="not-link">Luanar Bunda campus</p>
+            <p class="not-link">Lilongwe</p>
+            <p class="not-link">Malawi</p>
+            <div class="contact-info">
+              <p class="not-link"><i class="bi bi-telephone  white"></i>&nbsp;<span class="white">Phone : </span>+265998671706</p>
+              <p class="not-link"><i class="bi bi-envelope  white"></i>&nbsp;<span class="white">Email : </span>+265998671706</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-heading">
+          <div class="heading">
+            <p class="bold larger">Useful Links</p>
+          </div>
+          <div class="list-items">
+            <ul class="gray">
+              <li><a href="">Home</a></li>
+              <li><a href="">Blogs</a></li>
+              <li><a href="">Agrera</a></li>
+              <li><a href="">Service</a></li>
+              <li><a href="">About Us</a></li>
+              <li><a href="">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-heading">
+          <div class="heading">
+            <p class="bold larger">Our Services</p>
+          </div>
+          <div class="list-items">
+            <ul class="gray">
+              <li><a href="">Website development</a></li>
+              <li><a href="">Data Analysis</a></li>
+              <li><a href="">Artificial intelligence</a></li>
+              <li><a href="">Robotics</a></li>
+              <li><a href="">App Development</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-heading last">
+        <div class="logo">
+          <a href="">
+            <img src="assets/img/logo/agrera2.png" alt="">
+            <h5 class="bold ">
+              NativeBack
+            </h5>
+          </a>
+          
+        </div>
+        <div class="social-links">
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-twitter"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    
+  </footer>
+<!----- 
+  this part should be below the footer
+  the # on the hyper text reference is what does the scrolling to the top action 
+--------->
+<!------------------------VENDOR JS------------->
+
+<!------------------------OWN JS --------------->
+<script src="../../assets/js/feed.js"></script>  
+</body>
+</html>
